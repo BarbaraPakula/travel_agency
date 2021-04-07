@@ -1,21 +1,21 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 // import { connect } from 'react-redux';
 import { Row, Col } from 'react-flexbox-grid';
 import OrderSummary from '../OrderSummary/OrderSummary.js';
 
-const OrderForm = () => (
+const OrderForm = ({tripCost, options}) => (
   <Row>
     <Col xs={12}>
-      <OrderSummary />
+      <OrderSummary tripCost={tripCost} options={options} />
     </Col>
   </Row>
-
 );
 
-// OrderForm.propTypes = {
-//   props: PropTypes,
-// };
+OrderForm.propTypes = {
+  tripCost: PropTypes.string,
+  options: PropTypes.object,
+};
 
 export default OrderForm;
 
