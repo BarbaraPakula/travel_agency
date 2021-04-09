@@ -1,3 +1,5 @@
+import {parseOptionPrice} from '../utils/parseOptionPrice';
+
 /* SELECTORS */
 
 export const getAllTrips = ({ trips }) => trips;
@@ -24,8 +26,8 @@ export const getFilteredTrips = ({ trips, filters }) => {
     }
   }
   // TODO - sort by cost descending (most expensive goes first)
-  // const descending = output.sort((a, b) => parseInt(a.cost.slice(1) > parseInt(b.cost.slice(1))) ? 1 : -1);
-  // console.log('descending', descending);
+  output = output.sort((a, b) => parseOptionPrice(b.cost).value - parseOptionPrice(a.cost).value);
+
 
   return output;
 };
