@@ -40,16 +40,8 @@ export default function reducer(statePart = [], action = {}) {
       return {
         ...statePart,
         duration: {
-          from:
-            action.payload.type === 'from' &&
-              +action.payload.value <= +statePart.duration.to
-              ? action.payload.value
-              : statePart.duration.from,
-          to:
-            action.payload.type === 'to' &&
-              +action.payload.value >= +statePart.duration.from
-              ? action.payload.value
-              : statePart.duration.to,
+          ...statePart.duration,
+          [action.payload.type]: action.payload.value,
         },
       };
 
@@ -58,7 +50,7 @@ export default function reducer(statePart = [], action = {}) {
         ...statePart,
         tags: action.payload.checked
           ? [...statePart.tags, action.payload.tag]
-          : statePart.tags.filter((tag) => tag != action.payload.tag),
+          : statePart.tags.filter(tag => tag != action.payload.tag),
       };
 
     default:

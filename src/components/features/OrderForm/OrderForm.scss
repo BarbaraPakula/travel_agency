@@ -1,1 +1,7 @@
 @import '../../../styles/settings.scss';
+
+.component{
+  padding: 10px;
+  // border: 1px solid $color-dark;
+  background-color: $color-background;
+}
