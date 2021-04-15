@@ -1,4 +1,4 @@
-import {combineReducers, createStore} from 'redux';
+import { combineReducers, createStore } from 'redux';
 import tripList from '../data/trips.json';
 import globalReducer from './globalRedux';
 import filtersReducer from './filtersRedux';
@@ -14,6 +14,7 @@ const initialState = {
   filters: {
     searchPhrase: '',
     tags: [],
+    regions: [],
     duration: {
       from: 1,
       to: 14,

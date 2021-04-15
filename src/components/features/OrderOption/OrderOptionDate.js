@@ -13,9 +13,5 @@ function OrderOptionDate() {
   );
 }
 
-// OrderOptionDate.propTypes = {
-
-// }
-
 export default OrderOptionDate;
 

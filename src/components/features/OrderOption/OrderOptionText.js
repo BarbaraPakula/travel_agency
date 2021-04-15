@@ -1,6 +1,5 @@
 import React from 'react';
 import styles from './OrderOption.scss';
-// import PropTypes from 'prop-types';
 
 function OrderOptionText() {
   return (
@@ -8,9 +7,6 @@ function OrderOptionText() {
   );
 }
 
-// OrderOptionText.propTypes = {
-
-// };
 
 export default OrderOptionText;
 

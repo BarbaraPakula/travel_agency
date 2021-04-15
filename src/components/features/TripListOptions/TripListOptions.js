@@ -1,24 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './TripListOptions.scss';
-
 import { Row, Col } from 'react-flexbox-grid';
 
 class TripListOptions extends React.Component {
   handleTags(tag, checked) {
-    this.props.changeTag({ tag: tag, checked: checked });
-
-    // if(checked) {
-    //   console.log('Adding tag', tag);
-    //   // TODO - use action dispatcher from props
-    // } else {
-    //   console.log('Removing tag', tag);
-    //   // TODO - use action dispatcher from props
-    // }
+    this.props.changeTag({ tag, checked });
+  }
+  handleRegions(region, checked) {
+    this.props.changeRegion({ region, checked });
   }
 
   handleDuration(type, value) {
-    console.log('Changing duration', type, value);
     // - use action dispatcher from props
     this.props.changeDuration({ type: type, value: value });
   }
@@ -28,7 +21,7 @@ class TripListOptions extends React.Component {
   }
 
   render() {
-    const { tags, filters } = this.props;
+    const { tags, filters, regions } = this.props;
     return (
       <div className={styles.component}>
         <Row around="lg">
@@ -66,6 +59,21 @@ class TripListOptions extends React.Component {
               </details>
             </div>
           </Col>
+          <Col lg={3}>
+            <div className={styles.filter}>
+              <details>
+                <summary className={styles.toggle}>Filter by regions</summary>
+                <div className={styles.dropdown}>
+                  {Object.keys(regions).map(region => (
+                    <label key={region} className={styles.option}>
+                      <input type='checkbox' checked={filters.regions.indexOf(region) > -1} onChange={event => this.handleRegions(region, event.currentTarget.checked)} />
+                      {region}
+                    </label>
+                  ))}
+                </div>
+              </details>
+            </div>
+          </Col>
         </Row>
       </div>
     );
@@ -74,10 +82,12 @@ class TripListOptions extends React.Component {
 
 TripListOptions.propTypes = {
   tags: PropTypes.object,
+  regions: PropTypes.object,
   filters: PropTypes.object,
   changeSearchPhrase: PropTypes.func,
   changeDuration: PropTypes.func,
   changeTag: PropTypes.func,
+  changeRegion: PropTypes.func,
 };
 
 export default TripListOptions;
