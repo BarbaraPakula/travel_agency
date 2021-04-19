@@ -22,7 +22,6 @@ describe('Component TripSummary', () => {
 
     expect(component.find('img').prop('src')).toEqual(expectedSrc);
     expect(component.find('img').prop('alt')).toEqual(expectedAlt);
-    console.log(component.debug());
   });
 
   it('renders correct cost, days', () => {
@@ -46,7 +45,6 @@ describe('Component TripSummary', () => {
     expect(component.find('.tags span').at(0).text()).toEqual(expectedTags[0]);
     expect(component.find('.tags span').at(1).text()).toEqual(expectedTags[1]);
     expect(component.find('.tags span').at(2).text()).toEqual(expectedTags[2]);
-    console.log(component.debug());
   });
   it('should not render span if tags is falsy', () => {
     const component = shallow(<TripSummary  days={1} cost={'1234'} image={'image'} name={'name'} id={'id'} />);

@@ -10,7 +10,6 @@ describe('Component Hero', () => {
     const renderedTitle = component.find('.title').text();
     expect(renderedTitle).toEqual(expectedTitle);
     expect(component.find('.image').prop('src')).toEqual(expectedImage);
-    console.log(component.debug());
 
   });
   it('should throw error without required props', () => {
