@@ -8,6 +8,8 @@ const OrderOptionText = ({ setOptionValue, currentValue }) => (
       onChange={event => setOptionValue(event.currentTarget.value)}
       value={currentValue}
       className={styles.input}
+      placeholder='required'
+      required
     />
   </div>
 );
