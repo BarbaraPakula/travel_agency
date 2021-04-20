@@ -40,7 +40,7 @@ export default function reducer(statePart = [], action = {}) {
         ...statePart,
         searchPhrase: action.payload,
       };
-    // TODO - handle other action types
+    // - handle other action types
     case CHANGE_DURATION:
       return {
         ...statePart,
@@ -57,14 +57,16 @@ export default function reducer(statePart = [], action = {}) {
           ? [...statePart.tags, action.payload.tag]
           : statePart.tags.filter(tag => tag != action.payload.tag),
       };
+
+      // TODO
     case CHANGE_REGION:
       return {
         ...statePart,
         regions: action.payload.checked
-          ? [...statePart.regions, action.payload]
-          : statePart.regions.filter(region => region != action.payload),
-
+          ? [...statePart.regions, action.payload.region]
+          : statePart.regions.filter(region => region != action.payload.region),
       };
+
 
     default:
       return statePart;

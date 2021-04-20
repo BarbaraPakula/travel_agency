@@ -13,22 +13,27 @@ export const getFilteredTrips = ({ trips, filters }) => {
     output = output.filter(trip => pattern.test(trip.name));
   }
 
-  // TODO - filter by duration
+  // - filter by duration
   if (filters.duration) {
     output = output.filter((trip) => trip.days >= parseInt(filters.duration.from) && trip.days <= parseInt(filters.duration.to));
   }
 
-  // TODO - filter by tags
+  //  - filter by tags
 
   if (filters.tags) {
     for (let tag of filters.tags) {
+      console.log(tag);
       output = output.filter((trip) => trip.tags.includes(tag));
+      console.log(output);
     }
   }
-  // filter by regions
+  // TODO filter by regions
   if (filters.regions) {
+
     for (let region of filters.regions) {
-      output = output.filter((trip) => trip.tags.includes(region));
+      console.log(region);
+      output = output.filter(trip => trip.regions);
+      console.log(output);
     }
   }
 
