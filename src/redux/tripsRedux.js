@@ -1,5 +1,6 @@
 import { parseOptionPrice } from '../utils/parseOptionPrice';
 
+
 /* SELECTORS */
 
 export const getAllTrips = ({ trips }) => trips;
@@ -29,11 +30,9 @@ export const getFilteredTrips = ({ trips, filters }) => {
   }
   // TODO filter by regions
   if (filters.regions) {
-
     for (let region of filters.regions) {
       console.log(region);
-      output = output.filter(trip => trip.regions);
-      console.log(output);
+      // output = output.filter((trip) => region.countries.includes(trip.countries.code));
     }
   }
 

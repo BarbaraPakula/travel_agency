@@ -9,6 +9,7 @@ class TripListOptions extends React.Component {
   }
   handleRegions(region, checked) {
     this.props.changeRegion({ region, checked });
+    console.log(this.props.changeRegion);
   }
 
   handleDuration(type, value) {
@@ -66,7 +67,8 @@ class TripListOptions extends React.Component {
                 <div className={styles.dropdown}>
                   {Object.keys(regions).map(region => (
                     <label key={region} className={styles.option}>
-                      <input type='checkbox' checked={filters.regions.indexOf(region) > -1} onChange={event => this.handleRegions(region, event.currentTarget.checked)} />
+                      <input type='checkbox' checked={filters.regions.indexOf(region) > -1} onChange={event => this.handleRegions(region, event.currentTarget.checked)}
+                      />
                       {region}
                     </label>
                   ))}

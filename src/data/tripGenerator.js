@@ -297,12 +297,12 @@ use the code below at: https://next.json-generator.com
         return out;
       },
       //TODO 
-      regions(regions) {
+      regions(tags) {
         const options = 'Asia Africa Americas Oceania Europe'.split(' ');
         const out = [];
 
-        for (let i = 0; i < regions.integer(1, 3); i++) {
-          out.push(options.splice(regions.integer(0, options.length - 1), 1)[0]);
+        for(let i=0; i<tags.integer(1, 3); i++){
+          out.push(options.splice(tags.integer(0, options.length - 1), 1)[0]);
         }
         return out;
       },
