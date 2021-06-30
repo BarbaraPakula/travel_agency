@@ -4,12 +4,13 @@ import PropTypes from 'prop-types';
 import { formatTime } from '../../../utils/formatTime';
 
 export default class HappyHourAd extends Component {
-  constructor() {
-    super();
-
-    setInterval(() => {
+  componentDidMount() {
+    this.interval = setInterval(() => {
       this.forceUpdate();
     }, 1000);
+  }
+  componentWillUnmount() {
+    clearInterval(this.interval);
   }
 
   static propTypes = {
@@ -50,7 +51,6 @@ export default class HappyHourAd extends Component {
           {countDown > 23 * 3600 ? promoDescription : formatTime(countDown)}
         </div>
       </div>
-
     );
   }
 }
